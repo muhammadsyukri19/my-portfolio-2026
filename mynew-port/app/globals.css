@@ -190,6 +190,10 @@ body {
   animation: marquee 20s linear infinite;
 }
 
+.animate-marquee-fast {
+  animation: marquee 8s linear infinite;
+}
+
 .animate-glow {
   animation: glow 3s ease-in-out infinite;
 }

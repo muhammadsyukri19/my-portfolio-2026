@@ -61,10 +61,10 @@ export default function Footer() {
               Navigation
             </h4>
             <div className="flex flex-col gap-3">
-              {["About", "Services", "Projects", "Contact"].map((item) => (
+              {["About", "Experience", "Projects", "Contact"].map((item) => (
                 <a
                   key={item}
-                  href={`#${item === "Services" ? "experience" : item.toLowerCase()}`}
+                  href={`#${item.toLowerCase()}`}
                   className="text-sm text-white/30 hover:text-[#84cc16] transition-colors duration-300 w-fit"
                 >
                   {item}
@@ -82,6 +82,7 @@ export default function Footer() {
               {[
                 {
                   name: "GitHub",
+                  href: "https://github.com/muhammadsyukri19",
                   icon: (
                     <svg
                       className="w-4 h-4"
@@ -94,6 +95,7 @@ export default function Footer() {
                 },
                 {
                   name: "LinkedIn",
+                  href: "https://linkedin.com/in/muhammad-syukri19/",
                   icon: (
                     <svg
                       className="w-4 h-4"
@@ -106,6 +108,7 @@ export default function Footer() {
                 },
                 {
                   name: "Instagram",
+                  href: "https://instagram.com/m_sykri",
                   icon: (
                     <svg
                       className="w-4 h-4"
@@ -116,10 +119,31 @@ export default function Footer() {
                     </svg>
                   ),
                 },
+                {
+                  name: "Email",
+                  href: "mailto:muh.syukri@mhs.unsyiah.ac.id/msyukri807@gmail.com",
+                  icon: (
+                    <svg
+                      className="w-4 h-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={1.5}
+                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                      />
+                    </svg>
+                  ),
+                },
               ].map((social) => (
                 <a
                   key={social.name}
-                  href="#"
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full border border-[#252525] flex items-center justify-center text-white/30 hover:border-[#84cc16] hover:text-[#84cc16] hover:bg-[#84cc16]/5 transition-all duration-300"
                 >
                   {social.icon}
@@ -136,10 +160,10 @@ export default function Footer() {
           <p className="text-white/20 text-xs font-mono tracking-wider">
             &copy; {currentYear} Syukri. All rights reserved.
           </p>
-          <p className="text-white/20 text-xs font-mono tracking-wider">
+          {/* <p className="text-white/20 text-xs font-mono tracking-wider">
             Designed & Built with <span className="text-[#84cc16]">♥</span> in
             Indonesia
-          </p>
+          </p> */}
         </div>
       </div>
     </footer>

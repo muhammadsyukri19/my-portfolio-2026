@@ -6,7 +6,73 @@ export default function Hero() {
   return (
     <section id="home" className="relative w-full overflow-hidden bg-[#0B0B0B]">
       {/* White Rounded Container */}
-      <div className="relative bg-[#f5f5f0] rounded-b-[40px] md:rounded-b-[60px] lg:rounded-b-[200px] overflow-hidden h-screen max-h-screen">
+      <div className="relative bg-[#f5f5f0] rounded-b-[90px] md:rounded-b-[80px] lg:rounded-b-[250px] overflow-hidden h-screen max-h-screen">
+        {/* ===== Dot Grid Texture Overlay ===== */}
+        <div
+          className="absolute inset-0 z-[1] pointer-events-none opacity-[0.35]"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle, #0B0B0B 0.8px, transparent 0.8px)",
+            backgroundSize: "24px 24px",
+          }}
+        />
+
+        {/* ===== Diagonal Ribbon Banner (top-right) ===== */}
+        <div className="absolute top-[38px] -right-[60px] z-30 w-[280px] rotate-[40deg] overflow-hidden pointer-events-none">
+          <div className="bg-[#84cc16] py-2 overflow-hidden">
+            <div className="animate-marquee-fast whitespace-nowrap flex">
+              {[...Array(6)].map((_, i) => (
+                <span
+                  key={i}
+                  className="inline-flex items-center gap-3 text-[10px] font-bold tracking-[0.15em] uppercase text-[#0B0B0B] mx-3"
+                >
+                  AVAILABLE FOR WORK
+                  <span className="text-[#0B0B0B]/40">✦</span>
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* ===== Floating Email Button (top-left area) ===== */}
+        <motion.div
+          className="absolute top-58 md:top-32 left-6 sm:left-8 lg:left-12 z-30"
+          animate={{ y: [0, -6, 0] }}
+          transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <motion.a
+            href="mailto:msyukri807@gmail.com"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 1 }}
+            className="group flex items-center gap-3 bg-white/80 backdrop-blur-sm border border-[#0B0B0B]/10 rounded-full pl-3 pr-5 py-2.5 shadow-lg hover:shadow-xl hover:bg-white transition-all duration-300"
+          >
+            <div className="w-9 h-9 rounded-full bg-[#84cc16] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <svg
+                className="w-4 h-4 text-[#0B0B0B]"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                />
+              </svg>
+            </div>
+            <div className="hidden sm:block">
+              <p className="text-[9px] font-mono tracking-[0.15em] uppercase text-[#0B0B0B]/40">
+                Contact me
+              </p>
+              <p className="text-xs font-medium text-[#0B0B0B]/70 group-hover:text-[#0B0B0B] transition-colors">
+                msyukri807@gmail.com
+              </p>
+            </div>
+          </motion.a>
+        </motion.div>
+
         {/* ===== Large Rotating Star - Behind image as shadow ===== */}
         <motion.div
           animate={{ rotate: 360 }}
@@ -52,8 +118,7 @@ export default function Hero() {
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-bold text-[#0B0B0B] leading-[0.95] tracking-tight">
               Halo!
               <br />
-              Muhammad{" "}
-              <span className="italic font-normal">"Syukri"</span>
+              Muhammad <span className="italic font-normal">"Syukri"</span>
               <motion.span
                 animate={{ rotate: -360 }}
                 transition={{
@@ -124,7 +189,7 @@ export default function Hero() {
                 href="#projects"
                 className="group px-6 md:px-8 py-3 bg-[#84cc16] text-[#0B0B0B] rounded-full hover:bg-[#a3e635] transition-all duration-300 font-semibold text-xs md:text-sm flex items-center gap-2 shadow-lg"
               >
-                Start Your Project
+                Download Portfolio
                 <svg
                   className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
                   fill="none"
@@ -236,7 +301,11 @@ export default function Hero() {
                 </span>
                 <motion.span
                   animate={{ rotate: 360 }}
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                  transition={{
+                    duration: 20,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
                   className="text-[#84cc16] text-4xl mx-4"
                 >
                   ✦
