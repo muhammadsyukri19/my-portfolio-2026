@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import ScrollReveal from "./ScrollReveal";
 
 export default function Hero() {
   return (
@@ -247,12 +248,7 @@ export default function Hero() {
       </div>
 
       {/* Stats Bar - on the dark background below the white container */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 1.2 }}
-        className="relative z-20 bg-[#0B0B0B]"
-      >
+      <ScrollReveal direction="up" distance={40} className="relative z-20 bg-[#0B0B0B]">
         <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 py-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
@@ -314,7 +310,7 @@ export default function Hero() {
             ))}
           </div>
         </div>
-      </motion.div>
+      </ScrollReveal>
     </section>
   );
 }

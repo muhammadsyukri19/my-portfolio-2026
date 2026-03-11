@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import ScrollReveal from "./ScrollReveal";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -38,7 +39,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-3 gap-12 mb-16">
           {/* Brand */}
-          <div>
+          <ScrollReveal direction="up" delay={0} distance={30}>
             <a href="#home" className="flex items-center gap-2 mb-4 group">
               <div className="w-8 h-8 rounded-full bg-[#84cc16] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <svg width="16" height="16" viewBox="0 0 32 32" fill="#0B0B0B">
@@ -53,10 +54,10 @@ export default function Footer() {
               Empowering brands through creative solutions. Building digital
               experiences that make a lasting impression.
             </p>
-          </div>
+          </ScrollReveal>
 
           {/* Quick Links */}
-          <div>
+          <ScrollReveal direction="up" delay={0.1} distance={30}>
             <h4 className="text-[11px] font-mono tracking-[0.25em] uppercase text-[#84cc16] mb-6">
               Navigation
             </h4>
@@ -71,10 +72,10 @@ export default function Footer() {
                 </a>
               ))}
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Social */}
-          <div>
+          <ScrollReveal direction="up" delay={0.2} distance={30}>
             <h4 className="text-[11px] font-mono tracking-[0.25em] uppercase text-[#84cc16] mb-6">
               Connect
             </h4>
@@ -150,12 +151,13 @@ export default function Footer() {
                 </a>
               ))}
             </div>
-          </div>
+          </ScrollReveal>
         </div>
 
         {/* Bottom Divider */}
         <div className="h-px bg-[#252525] mb-8"></div>
 
+        <ScrollReveal direction="up" delay={0} distance={20}>
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-white/20 text-xs font-mono tracking-wider">
             &copy; {currentYear} Syukri. All rights reserved.
@@ -165,6 +167,7 @@ export default function Footer() {
             Indonesia
           </p> */}
         </div>
+        </ScrollReveal>
       </div>
     </footer>
   );

@@ -8,7 +8,7 @@ export default function LoadingScreen({
 }: {
   onComplete: () => void;
 }) {
-  const [count, setCount] = useState(50);
+  const [count, setCount] = useState(30);
   const [isExiting, setIsExiting] = useState(false);
 
   const handleComplete = useCallback(() => {
@@ -22,16 +22,16 @@ export default function LoadingScreen({
       return;
     }
 
-    // 4000ms / 50 steps = 80ms per step
+    // 4000ms / 30 steps = 30ms per step
     const timer = setTimeout(() => {
       setCount((prev) => prev - 1);
-    }, 80);
+    }, 30);
 
     return () => clearTimeout(timer);
   }, [count, handleComplete]);
 
-  // Progress percentage (inverted: 50→0 means 0%→100%)
-  const progress = ((50 - count) / 50) * 100;
+  // Progress percentage (inverted: 30→0 means 0%→100%)
+  const progress = ((30 - count) / 30) * 100;
 
   return (
     <AnimatePresence>

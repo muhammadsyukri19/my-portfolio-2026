@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import ScrollReveal from "./ScrollReveal";
 
 const projects = [
   {
@@ -47,13 +48,12 @@ const projects = [
 ];
 
 export default function Projects() {
-  const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: true, margin: "-80px" });
+  const cardsRef = useRef(null);
+  const cardsInView = useInView(cardsRef, { once: true, margin: "-60px" });
 
   return (
     <section
       id="projects"
-      ref={sectionRef}
       className="py-20 md:py-28 px-6 sm:px-8 lg:px-12 bg-[#0B0B0B] relative overflow-hidden"
     >
       {/* Background */}
@@ -62,40 +62,31 @@ export default function Projects() {
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Section Header */}
         <div className="flex items-end justify-between mb-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
-          >
+          <ScrollReveal direction="up" distance={30}>
             <span className="text-[11px] font-mono tracking-[0.35em] uppercase text-[#84cc16] block mb-3">
               ✦ My work
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-white">
               Featured <span className="gradient-text">Projects</span>
             </h2>
-          </motion.div>
+          </ScrollReveal>
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
+          <ScrollReveal direction="none" delay={0.2}
             className="hidden md:block text-white/30 text-xs font-mono tracking-widest"
           >
             scroll to explore →
-          </motion.p>
+          </ScrollReveal>
         </div>
 
         {/* Horizontal Scroll Strip */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, delay: 0.15 }}
+        <ScrollReveal direction="up" delay={0.1} distance={30}
           className="flex gap-5 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-3
             [&::-webkit-scrollbar]:h-[3px]
             [&::-webkit-scrollbar-track]:bg-transparent
             [&::-webkit-scrollbar-thumb]:bg-[#333]
             [&::-webkit-scrollbar-thumb]:rounded-full
             hover:[&::-webkit-scrollbar-thumb]:bg-[#84cc16]/40"
+          ref={cardsRef}
         >
           {projects.map((project, i) => (
             <motion.a
@@ -104,7 +95,7 @@ export default function Projects() {
               target={project.link ? "_blank" : undefined}
               rel={project.link ? "noopener noreferrer" : undefined}
               initial={{ opacity: 0, x: 30 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              animate={cardsInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.1 + i * 0.08 }}
               whileHover={{ y: -5 }}
               className={`group shrink-0 w-[272px] snap-start bg-[#141414] rounded-2xl overflow-hidden border border-[#252525] hover:border-[#84cc16]/30 transition-all duration-500 card-glow ${
@@ -170,15 +161,10 @@ export default function Projects() {
               </div>
             </motion.a>
           ))}
-        </motion.div>
+        </ScrollReveal>
 
         {/* Scrolling Tags */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-10 overflow-hidden"
-        >
+        <ScrollReveal direction="none" delay={0.3} className="mt-10 overflow-hidden">
           <div className="flex gap-4 animate-marquee whitespace-nowrap">
             {[
               "UX Design",
@@ -206,7 +192,7 @@ export default function Projects() {
               </span>
             ))}
           </div>
-        </motion.div>
+        </ScrollReveal>
       </div>
     </section>
   );

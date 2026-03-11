@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import ScrollReveal from "./ScrollReveal";
 
 const experiences = [
   {
@@ -88,13 +89,12 @@ const skills = [
 ];
 
 export default function Experience() {
-  const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: true, margin: "-80px" });
+  const listRef = useRef(null);
+  const listInView = useInView(listRef, { once: true, margin: "-60px" });
 
   return (
     <section
       id="experience"
-      ref={sectionRef}
       className="py-32 md:py-44 px-6 sm:px-8 lg:px-12 bg-[#0e0e0e] relative overflow-hidden"
     >
       {/* Background glow */}
@@ -102,12 +102,7 @@ export default function Experience() {
 
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="mb-14"
-        >
+        <ScrollReveal direction="up" distance={30} className="mb-14">
           <span className="text-[11px] font-mono tracking-[0.35em] uppercase text-[#84cc16] block mb-4">
             ✦ My Journey
           </span>
@@ -136,15 +131,16 @@ export default function Experience() {
               USK since 2024.
             </p>
           </div>
-        </motion.div>
+        </ScrollReveal>
 
         {/* Main Grid */}
         <div className="grid lg:grid-cols-5 gap-6">
           {/* ── Scrollable Experience List ── */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.15 }}
+          <ScrollReveal
+            ref={listRef}
+            direction="up"
+            delay={0.1}
+            distance={30}
             className="lg:col-span-3 bg-[#141414] border border-[#252525] rounded-3xl overflow-hidden flex flex-col"
           >
             {/* Card header */}
@@ -173,7 +169,7 @@ export default function Experience() {
                 <motion.div
                   key={exp.id}
                   initial={{ opacity: 0, x: -12 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
+                  animate={listInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.4, delay: 0.2 + i * 0.07 }}
                   className={`group flex gap-4 px-6 py-5 cursor-default transition-colors duration-300 hover:bg-white/[0.03] ${
                     i !== experiences.length - 1
@@ -227,15 +223,12 @@ export default function Experience() {
                 </motion.div>
               ))}
             </div>
-          </motion.div>
+          </ScrollReveal>
 
           {/* ── Right column ── */}
           <div className="lg:col-span-2 flex flex-col gap-6">
             {/* Education card */}
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.25 }}
+            <ScrollReveal direction="up" delay={0.2} distance={30}
               className="bg-[#141414] border border-[#84cc16]/20 rounded-3xl p-6 flex flex-col gap-4"
             >
               <div className="flex items-center gap-3">
@@ -272,13 +265,10 @@ export default function Experience() {
                   / 4.00 GPA
                 </span>
               </div>
-            </motion.div>
+            </ScrollReveal>
 
             {/* Skills card */}
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.35 }}
+            <ScrollReveal direction="up" delay={0.3} distance={30}
               className="bg-[#141414] border border-[#252525] rounded-3xl p-6 flex-1"
             >
               <span className="text-[9px] font-mono tracking-widest text-white/25 uppercase block mb-4">
@@ -308,15 +298,12 @@ export default function Experience() {
                   </div>
                 ))}
               </div>
-            </motion.div>
+            </ScrollReveal>
           </div>
         </div>
 
         {/* CTA Row */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.45 }}
+        <ScrollReveal direction="up" delay={0.1} distance={30}
           className="grid sm:grid-cols-2 gap-4 mt-6"
         >
           <div className="bg-[#141414] rounded-2xl p-6 border border-[#252525] flex items-center justify-between hover:border-[#84cc16]/30 transition-all duration-500 group">
@@ -370,7 +357,7 @@ export default function Experience() {
               </svg>
             </a>
           </div>
-        </motion.div>
+        </ScrollReveal>
       </div>
 
       {/* Marquee Banner */}

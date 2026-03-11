@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import type { Variants } from "framer-motion";
+import ScrollReveal from "./ScrollReveal";
 
 const skills = [
   { name: "React & Next.js", level: 80, color: "bg-[#84cc16]" },
@@ -345,13 +346,16 @@ const itemVariants: Variants = {
 };
 
 export default function About() {
-  const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: true, margin: "-80px" });
+  const skillsRef = useRef(null);
+  const skillsInView = useInView(skillsRef, { once: true, margin: "-60px" });
+  const toolsRef = useRef(null);
+  const toolsInView = useInView(toolsRef, { once: true, margin: "-60px" });
+  const statsRef = useRef(null);
+  const statsInView = useInView(statsRef, { once: true, margin: "-60px" });
 
   return (
     <section
       id="about"
-      ref={sectionRef}
       className="py-16 md:py-22 px-6 sm:px-8 lg:px-12 bg-[#0B0B0B] relative overflow-hidden"
     >
       {/* Decorative Background Elements */}
@@ -360,12 +364,7 @@ export default function About() {
 
       <div className="max-w-8xl mx-auto relative z-10">
         {/* Section Title */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="mb-24"
-        >
+        <ScrollReveal direction="up" distance={30} className="mb-24">
           <span className="text-[11px] font-mono tracking-[0.35em] uppercase text-[#84cc16] block mb-4">
             ✦ Get to know me
           </span>
@@ -374,17 +373,12 @@ export default function About() {
             <br />
             <span className="gradient-text">That Matter"</span>
           </h2>
-        </motion.div>
+        </ScrollReveal>
 
         {/* Main Content Grid */}
         <div className="grid md:grid-cols-3 gap-10 lg:gap-24 items-start mb-32">
           {/* Photo */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative group"
-          >
+          <ScrollReveal direction="left" delay={0.1} distance={50} className="relative group">
             <div className="relative">
               {/* Main Image */}
               <div className="relative rounded-2xl overflow-hidden border border-[#252525] bg-[#141414]">
@@ -416,13 +410,14 @@ export default function About() {
               <div className="absolute -top-3 -left-3 w-8 h-8 border-t-2 border-l-2 border-[#84cc16]/50 rounded-tl-lg"></div>
               <div className="absolute -bottom-3 -right-3 w-8 h-8 border-b-2 border-r-2 border-[#84cc16]/50 rounded-br-lg"></div>
             </div>
-          </motion.div>
+          </ScrollReveal>
 
           {/* Text Content */}
           <motion.div
+            ref={skillsRef}
             variants={containerVariants}
             initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
+            animate={skillsInView ? "visible" : "hidden"}
             className="space-y-7"
           >
             <motion.p
@@ -485,7 +480,7 @@ export default function About() {
                       className={`h-full rounded-full ${skill.color}`}
                       initial={{ width: 0 }}
                       animate={
-                        isInView ? { width: `${skill.level}%` } : { width: 0 }
+                        skillsInView ? { width: `${skill.level}%` } : { width: 0 }
                       }
                       transition={{
                         duration: 1.2,
@@ -501,9 +496,10 @@ export default function About() {
 
           {/* Tools Grid */}
           <motion.div
+            ref={toolsRef}
             variants={containerVariants}
             initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
+            animate={toolsInView ? "visible" : "hidden"}
           >
             <h3 className="text-center text-[11px] font-mono tracking-[0.35em] uppercase text-white/30 mb-10">
               ✦ Tools I Use ✦
@@ -525,9 +521,10 @@ export default function About() {
 
             {/* Stats Counter */}
             <motion.div
+              ref={statsRef}
               variants={containerVariants}
               initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
+              animate={statsInView ? "visible" : "hidden"}
               className="grid grid-cols-2 md:grid-cols-2 gap-4 my-24"
             >
               {stats.map((stat) => (
