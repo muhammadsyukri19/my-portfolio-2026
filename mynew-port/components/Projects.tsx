@@ -54,7 +54,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="py-20 md:py-28 px-6 sm:px-8 lg:px-12 bg-[#0B0B0B] relative overflow-hidden"
+      className="py-15 md:py-20 px-6 sm:px-8 lg:px-12 bg-dark-textured bg-mesh-overlay relative overflow-hidden"
     >
       {/* Background */}
       <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[#84cc16]/3 rounded-full blur-[150px] pointer-events-none" />
@@ -71,7 +71,9 @@ export default function Projects() {
             </h2>
           </ScrollReveal>
 
-          <ScrollReveal direction="none" delay={0.2}
+          <ScrollReveal
+            direction="none"
+            delay={0.2}
             className="hidden md:block text-white/30 text-xs font-mono tracking-widest"
           >
             scroll to explore →
@@ -79,7 +81,10 @@ export default function Projects() {
         </div>
 
         {/* Horizontal Scroll Strip */}
-        <ScrollReveal direction="up" delay={0.1} distance={30}
+        <ScrollReveal
+          direction="up"
+          delay={0.1}
+          distance={30}
           className="flex gap-5 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-3
             [&::-webkit-scrollbar]:h-[3px]
             [&::-webkit-scrollbar-track]:bg-transparent
@@ -164,7 +169,11 @@ export default function Projects() {
         </ScrollReveal>
 
         {/* Scrolling Tags */}
-        <ScrollReveal direction="none" delay={0.3} className="mt-10 overflow-hidden">
+        <ScrollReveal
+          direction="none"
+          delay={0.3}
+          className="mt-10 overflow-hidden"
+        >
           <div className="flex gap-4 animate-marquee whitespace-nowrap">
             {[
               "UX Design",

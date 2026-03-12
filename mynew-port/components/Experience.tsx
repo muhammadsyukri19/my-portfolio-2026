@@ -95,7 +95,7 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="py-32 md:py-44 px-6 sm:px-8 lg:px-12 bg-[#0e0e0e] relative overflow-hidden"
+      className="py-5 md:py-3 px-6 sm:px-8 lg:px-12 bg-[#0e0e0e] relative overflow-hidden"
     >
       {/* Background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#84cc16]/3 rounded-full blur-[150px] pointer-events-none" />
@@ -228,7 +228,10 @@ export default function Experience() {
           {/* ── Right column ── */}
           <div className="lg:col-span-2 flex flex-col gap-6">
             {/* Education card */}
-            <ScrollReveal direction="up" delay={0.2} distance={30}
+            <ScrollReveal
+              direction="up"
+              delay={0.2}
+              distance={30}
               className="bg-[#141414] border border-[#84cc16]/20 rounded-3xl p-6 flex flex-col gap-4"
             >
               <div className="flex items-center gap-3">
@@ -268,7 +271,10 @@ export default function Experience() {
             </ScrollReveal>
 
             {/* Skills card */}
-            <ScrollReveal direction="up" delay={0.3} distance={30}
+            <ScrollReveal
+              direction="up"
+              delay={0.3}
+              distance={30}
               className="bg-[#141414] border border-[#252525] rounded-3xl p-6 flex-1"
             >
               <span className="text-[9px] font-mono tracking-widest text-white/25 uppercase block mb-4">
@@ -303,7 +309,10 @@ export default function Experience() {
         </div>
 
         {/* CTA Row */}
-        <ScrollReveal direction="up" delay={0.1} distance={30}
+        <ScrollReveal
+          direction="up"
+          delay={0.1}
+          distance={30}
           className="grid sm:grid-cols-2 gap-4 mt-6"
         >
           <div className="bg-[#141414] rounded-2xl p-6 border border-[#252525] flex items-center justify-between hover:border-[#84cc16]/30 transition-all duration-500 group">
@@ -360,7 +369,7 @@ export default function Experience() {
         </ScrollReveal>
       </div>
 
-      {/* Marquee Banner */}
+      {/* Marquee Banner
       <div className="mt-32 overflow-hidden border-t border-b border-[#252525] py-6">
         <div className="animate-marquee whitespace-nowrap flex items-center">
           {[...Array(4)].map((_, i) => (
@@ -380,7 +389,7 @@ export default function Experience() {
             </span>
           ))}
         </div>
-      </div>
+      </div> */}
     </section>
   );
 }

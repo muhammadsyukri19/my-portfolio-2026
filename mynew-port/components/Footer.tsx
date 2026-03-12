@@ -7,7 +7,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-16 md:py-20 px-6 sm:px-8 lg:px-12 bg-[#0B0B0B] relative overflow-hidden">
+    <footer className="py-8 md:py-10 px-6 sm:px-4 lg:px-12 bg-dark-textured relative overflow-hidden">
       {/* Top marquee banner */}
       <div className="overflow-hidden border-t border-b border-[#252525] py-8 mb-16">
         <div className="animate-marquee whitespace-nowrap flex items-center">
@@ -158,15 +158,15 @@ export default function Footer() {
         <div className="h-px bg-[#252525] mb-8"></div>
 
         <ScrollReveal direction="up" delay={0} distance={20}>
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-white/20 text-xs font-mono tracking-wider">
-            &copy; {currentYear} Syukri. All rights reserved.
-          </p>
-          {/* <p className="text-white/20 text-xs font-mono tracking-wider">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <p className="text-white/20 text-xs font-mono tracking-wider">
+              &copy; {currentYear} Syukri. All rights reserved.
+            </p>
+            {/* <p className="text-white/20 text-xs font-mono tracking-wider">
             Designed & Built with <span className="text-[#84cc16]">♥</span> in
             Indonesia
           </p> */}
-        </div>
+          </div>
         </ScrollReveal>
       </div>
     </footer>

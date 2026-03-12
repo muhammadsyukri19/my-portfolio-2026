@@ -364,7 +364,7 @@ export default function About() {
 
       <div className="max-w-8xl mx-auto relative z-10">
         {/* Section Title */}
-        <ScrollReveal direction="up" distance={30} className="mb-24">
+        <ScrollReveal direction="up" distance={30} className="mb-12">
           <span className="text-[11px] font-mono tracking-[0.35em] uppercase text-[#84cc16] block mb-4">
             ✦ Get to know me
           </span>
@@ -378,16 +378,21 @@ export default function About() {
         {/* Main Content Grid */}
         <div className="grid md:grid-cols-3 gap-10 lg:gap-24 items-start mb-32">
           {/* Photo */}
-          <ScrollReveal direction="left" delay={0.1} distance={50} className="relative group">
-            <div className="relative">
+          <ScrollReveal
+            direction="left"
+            delay={0.1}
+            distance={50}
+            className="relative group"
+          >
+            <div className="relative mx-5">
               {/* Main Image */}
-              <div className="relative rounded-2xl overflow-hidden border border-[#252525] bg-[#141414]">
+              <div className="h-100 relative rounded-3xl overflow-hidden border border-[#a5a0a0] bg-[#292828]">
                 <img
                   src="/pribadi/syukri.png"
                   alt="Syukri"
                   className="relative rounded-2xl w-full group-hover:scale-[1.02] transition-transform duration-700 object-cover object-bottom aspect-[4/5]"
                 />
-                <div className="absolute inset-0 bg-linear-to-t from-[#0B0B0B] via-transparent to-transparent opacity-40"></div>
+                <div className="absolute inset-0 bg-linear-to-t from-[#15381e] via-transparent to-transparent opacity-100"></div>
               </div>
 
               {/* Floating Badge */}
@@ -459,39 +464,6 @@ export default function About() {
               yang tidak hanya berjalan dengan baik, tetapi juga memberikan
               pengalaman yang nyaman bagi pengguna.
             </motion.p>
-
-            {/* Skills */}
-            <motion.div variants={itemVariants} className="pt-8 space-y-6">
-              <h3 className="text-xs font-mono tracking-[0.25em] uppercase text-[#84cc16] mb-2">
-                ✦ Skills
-              </h3>
-              {skills.map((skill) => (
-                <div key={skill.name} className="space-y-2.5">
-                  <div className="flex justify-between text-sm">
-                    <span className="text-white/80 font-medium">
-                      {skill.name}
-                    </span>
-                    <span className="text-white/30 font-mono text-xs">
-                      {skill.level}%
-                    </span>
-                  </div>
-                  <div className="h-1.5 bg-[#1a1a1a] rounded-full overflow-hidden border border-[#252525]">
-                    <motion.div
-                      className={`h-full rounded-full ${skill.color}`}
-                      initial={{ width: 0 }}
-                      animate={
-                        skillsInView ? { width: `${skill.level}%` } : { width: 0 }
-                      }
-                      transition={{
-                        duration: 1.2,
-                        ease: "easeOut",
-                        delay: 0.5,
-                      }}
-                    />
-                  </div>
-                </div>
-              ))}
-            </motion.div>
           </motion.div>
 
           {/* Tools Grid */}
@@ -519,7 +491,42 @@ export default function About() {
               ))}
             </div>
 
-            {/* Stats Counter */}
+            {/* Skills */}
+            <motion.div variants={itemVariants} className="pt-8 space-y-6">
+              <h3 className="text-xs font-mono tracking-[0.25em] uppercase text-[#84cc16] mb-2">
+                ✦ Skills
+              </h3>
+              {skills.map((skill) => (
+                <div key={skill.name} className="space-y-2.5">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-white/80 font-medium">
+                      {skill.name}
+                    </span>
+                    <span className="text-white/30 font-mono text-xs">
+                      {skill.level}%
+                    </span>
+                  </div>
+                  <div className="h-1.5 bg-[#1a1a1a] rounded-full overflow-hidden border border-[#252525]">
+                    <motion.div
+                      className={`h-full rounded-full ${skill.color}`}
+                      initial={{ width: 0 }}
+                      animate={
+                        skillsInView
+                          ? { width: `${skill.level}%` }
+                          : { width: 0 }
+                      }
+                      transition={{
+                        duration: 1.2,
+                        ease: "easeOut",
+                        delay: 0.5,
+                      }}
+                    />
+                  </div>
+                </div>
+              ))}
+            </motion.div>
+
+            {/* Stats Counter
             <motion.div
               ref={statsRef}
               variants={containerVariants}
@@ -542,7 +549,7 @@ export default function About() {
                   </div>
                 </motion.div>
               ))}
-            </motion.div>
+            </motion.div> */}
           </motion.div>
         </div>
       </div>

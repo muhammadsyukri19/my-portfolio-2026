@@ -247,8 +247,12 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Stats Bar - on the dark background below the white container */}
-      <ScrollReveal direction="up" distance={40} className="relative z-20 bg-[#0B0B0B]">
+      {/* Stats Bar - on the dark background below the white container
+      <ScrollReveal
+        direction="up"
+        distance={40}
+        className="relative z-20 bg-[#0B0B0B]"
+      >
         <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 py-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
@@ -310,7 +314,7 @@ export default function Hero() {
             ))}
           </div>
         </div>
-      </ScrollReveal>
+      </ScrollReveal> */}
     </section>
   );
 }

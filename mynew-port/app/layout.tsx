@@ -50,7 +50,7 @@ export default function RootLayout({
   return (
     <html lang="id" className="scroll-smooth dark">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} antialiased bg-[#0B0B0B]`}
+        className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} antialiased bg-[#0B0B0B] noise-overlay`}
       >
         {children}
       </body>

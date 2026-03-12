@@ -9,6 +9,9 @@ import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import MusicPlayer from "@/components/MusicPlayer";
+import ParticleField from "@/components/ParticleField";
+import SectionDivider from "@/components/SectionDivider";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -21,16 +24,18 @@ export default function Home() {
           loading ? "opacity-0" : "opacity-100"
         }`}
       >
+        <ParticleField />
         <Navbar />
         <Hero />
         <About />
-        <div className="section-divider" />
+        <SectionDivider variant="glow" />
         <Experience />
-        <div className="section-divider" />
+        <SectionDivider variant="diamond" />
         <Projects />
-        <div className="section-divider" />
+        <SectionDivider variant="glow" />
         <Contact />
         <Footer />
+        <MusicPlayer />
       </main>
     </>
   );

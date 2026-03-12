@@ -6,10 +6,12 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="py-16 md:py-20 px-6 sm:px-8 lg:px-12 bg-[#0e0e0e] relative overflow-hidden"
+      className="py-8 md:py-10 px-6 sm:px-8 lg:px-12 bg-dark-textured relative overflow-hidden"
     >
       <div className="max-w-4xl mx-auto relative z-10">
-        <ScrollReveal direction="up" distance={30}
+        <ScrollReveal
+          direction="up"
+          distance={30}
           className="flex flex-col sm:flex-row items-center justify-between gap-6 bg-[#141414] border border-[#252525] rounded-2xl px-8 py-7"
         >
           {/* Left: Icon + Text */}

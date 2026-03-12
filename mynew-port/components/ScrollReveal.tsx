@@ -6,7 +6,10 @@ import type { HTMLMotionProps } from "framer-motion";
 
 type Direction = "up" | "down" | "left" | "right" | "none";
 
-interface ScrollRevealProps extends Omit<HTMLMotionProps<"div">, "initial" | "animate" | "transition"> {
+interface ScrollRevealProps extends Omit<
+  HTMLMotionProps<"div">,
+  "initial" | "animate" | "transition"
+> {
   children: React.ReactNode;
   direction?: Direction;
   delay?: number;
@@ -58,19 +61,27 @@ const ScrollReveal = forwardRef<HTMLDivElement, ScrollRevealProps>(
       className,
       ...rest
     },
-    externalRef
+    externalRef,
   ) {
     const internalRef = useRef<HTMLDivElement>(null);
-    const isInView = useInView(internalRef, { once, margin: margin as `${number}px` });
+    const isInView = useInView(internalRef, {
+      once,
+      margin: margin as `${number}px`,
+    });
 
     // Expose the internal ref to the parent via forwardRef
-    useImperativeHandle(externalRef, () => internalRef.current as HTMLDivElement);
+    useImperativeHandle(
+      externalRef,
+      () => internalRef.current as HTMLDivElement,
+    );
 
     return (
       <motion.div
         ref={internalRef}
         initial={getInitial(direction, distance)}
-        animate={isInView ? getAnimate(direction) : getInitial(direction, distance)}
+        animate={
+          isInView ? getAnimate(direction) : getInitial(direction, distance)
+        }
         transition={{
           duration,
           delay,
@@ -82,7 +93,7 @@ const ScrollReveal = forwardRef<HTMLDivElement, ScrollRevealProps>(
         {children}
       </motion.div>
     );
-  }
+  },
 );
 
 export default ScrollReveal;
