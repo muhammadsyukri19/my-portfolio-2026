@@ -108,16 +108,16 @@ export default function MusicPlayer() {
   };
 
   return (
-    <div className="fixed bottom-120 right-0 sm:bottom-8 sm:right-8 z-50 flex flex-col items-end gap-3">
-      {/* Expanded Panel */}
+    <div className="fixed top-1/2 -translate-y-1/2 right-0 md:top-auto md:translate-y-0 md:bottom-8 md:right-8 z-50">
+      {/* Expanded Panel — absolute above button, does NOT affect button position */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: 20, scale: 0.9 }}
+            initial={{ opacity: 0, y: 10, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.9 }}
+            exit={{ opacity: 0, y: 10, scale: 0.9 }}
             transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="bg-[#141414]/95 backdrop-blur-xl border border-[#252525] rounded-2xl p-4 w-[260px] shadow-[0_8px_40px_rgba(0,0,0,0.5)]"
+            className="absolute bottom-full mb-3 right-0 bg-[#141414]/95 backdrop-blur-xl border border-[#252525] rounded-2xl p-4 w-[260px] max-w-[calc(100vw-3rem)] shadow-[0_8px_40px_rgba(0,0,0,0.5)]"
           >
             {/* Song Info */}
             <div className="flex items-center gap-3 mb-4">
